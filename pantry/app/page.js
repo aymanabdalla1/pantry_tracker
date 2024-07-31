@@ -1,5 +1,14 @@
+'use client';
+
 import { Box, Typography } from "@mui/material";
 import { Stack } from "@mui/material";
+import { useState, useEffect } from "react";
+import Image from 'next/image'
+import {firestore} from '../firebase'
+
+
+
+
 
 const items = [
   'tomato',
@@ -15,8 +24,28 @@ const items = [
 ]
 
 export default function Home() {
+  const [Inventory, setInventory] = useState([]);
+  const [open, setOpen] = useState(false);
+  const [itemName, setItemName] = useState('');
+
+  const updateInventory = async () => {
+    const snapshot = query(collection(firebase, 'inventory'));
+    const docs = await getDocs(snapshot);
+    const inventoryList = []
+    docs.forEach((doc) => {
+      inventoryList.push({
+        name:doc.id,
+        ...doc.data()
+      })
+    })
+    setInventory(inventoryList)
+  }
+
+  useEffect(() => {
+    updateInventory()
+  }, [])
+
   return (
-    
     <Box
       width="100vw"
       height="100vh"
@@ -27,7 +56,7 @@ export default function Home() {
     >
       <Box border={'1px solid #333'}>
       <Box width='800px' height='100px' bgcolor={'#ADD8E6'} display={'flex'} justifyContent={'center'} alignItems={'center'}>
-        <Typography variant={'h2'} color={'#333'} textAlign={'center'}> Pantry items </Typography>
+        <Typography variant={'h2'} color={'#333'} textAlign={'center'}> Inventory Management </Typography>
       </Box>
       <Stack width="800px" height="500px" spacing={2} overflow={'auto'}>
         {items.map((i) => (
