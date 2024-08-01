@@ -4,9 +4,9 @@ Pantry Tracker is a pantry management application that allows users to keep trac
 
 ## Project Checklist
 
-- [ ] Set up a Next.js project with Material UI components
-- [ ] Implement a Firebase backend for data storage
-- [ ] Create a form to add, delete, and update pantry items
+- [x] Set up a Next.js project with Material UI components
+- [x] Implement a Firebase backend for data storage
+- [x] Create a form to add, delete, and update pantry items
 - [ ] Add a search or filter functionality to easily find items
 - [ ] Create a presentable frontend design to display all pantry items
 - [ ] Deploy to Vercel and use CI/CD
