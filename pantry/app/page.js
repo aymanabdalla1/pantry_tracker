@@ -69,6 +69,7 @@ export default function Home() {
       alignItems={"center"}
       flexDirection={"column"}
       gap={2}
+      bgcolor="#eaf3ff"
     >
       <Modal open={open} onClose={handleClose}>
         <Box
@@ -115,8 +116,8 @@ export default function Home() {
         Add Item
       </Button>
 
-      <Box border="1px solid #333">
-        <Box width="800px" height="100px" bgcolor="#ADD8E6">
+      <Box border="1px solid #333" bgcolor="white">
+        <Box width="800px" height="100px" bgcolor="#ADD8E6" alignContent="center" >
           <Typography
             variant="h2"
             bgcolor="#ADD8E6"
@@ -128,7 +129,7 @@ export default function Home() {
           </Typography>
         </Box>
 
-        <Stack width="800px" height="300px" overflow="auto" spacing={2}>
+        <Stack width="800px" height="600px" overflow="auto" spacing={2}>
           {inventory.map(({ name, quantity }) => (
             <Box
               key={name}
@@ -137,7 +138,7 @@ export default function Home() {
               display="flex"
               alignItems="center"
               justifyContent="space-between"
-              bgColor="#f0f0f0"
+              bgcolor="#f0f0f0"
               padding={5}
             >
               <Typography variant="h3" color="#333" textAlign="center">
